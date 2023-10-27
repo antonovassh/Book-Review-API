@@ -8,7 +8,7 @@
         public string Author { get; set; }
         public DateTime CreatedDate { get; set; }
 
-        public ICollection<Rewiew> Rewiews { get; set; }
+        public ICollection<Review> Reviews { get; set; }
         public ICollection<BookOwner> BookOwners { get; set; }
         public ICollection<BookCategory> BookCategories { get; set; }
 

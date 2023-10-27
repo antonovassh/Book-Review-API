@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kik3n4DQ/UeFEp7bmF9jbS+2bt6TZuCNCq1MKaMM8dC/YY1nzk5jJRGMokLf92G++XEO7v17/0DJMW2ekcQxZw==",
+  "dgSpecHash": "WkP/WqNfkkviEOnPd+lPlZyxchuPNFDUEV8/Et5iQ1nl/5FGvHEcTM8BvORfuhTW/WFzcDMPx7fU27dGgNLxUg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Олександра\\Documents\\MyRepo\\BookRewiewAPI\\BookRewiewAPI\\BookRewiewAPI.csproj",
+  "projectFilePath": "C:\\Users\\Олександра\\Documents\\MyRepo\\Book-Rewiew-API\\BookRewiewAPI\\BookRewiewAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Олександра\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Олександра\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
@@ -17,6 +17,7 @@
     "C:\\Users\\Олександра\\.nuget\\packages\\microsoft.entityframeworkcore.design\\7.0.13\\microsoft.entityframeworkcore.design.7.0.13.nupkg.sha512",
     "C:\\Users\\Олександра\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.13\\microsoft.entityframeworkcore.relational.7.0.13.nupkg.sha512",
     "C:\\Users\\Олександра\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\7.0.13\\microsoft.entityframeworkcore.sqlserver.7.0.13.nupkg.sha512",
+    "C:\\Users\\Олександра\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\7.0.13\\microsoft.entityframeworkcore.tools.7.0.13.nupkg.sha512",
     "C:\\Users\\Олександра\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Олександра\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\Олександра\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0\\microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
