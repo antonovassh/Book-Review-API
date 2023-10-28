@@ -31,14 +31,14 @@ namespace BookRewiewAPI
                             {
                                 new Review { Title="The Great Gatsby",Text = "\"The Great Gatsby\" by F. Scott Fitzgerald is a timeless classic that" +
                                 " delves into the extravagance and moral decay of the Roaring Twenties, vividly capturing the American Dream's elusive" +
-                                " allure and its ultimate hollowness.", 
+                                " allure and its ultimate hollowness.", Rating = 5,
                                 Reviewer = new Reviewer(){ FirstName = "Teddy", LastName = "Smith" } },
                                 new Review { Title="The Great Gatsby", Text = "I didn't enjoy \"The Great Gatsby\" because it felt like a lot of rich " +
-                                "people's drama with characters I couldn't relate to.", 
+                                "people's drama with characters I couldn't relate to.", Rating = 2,
                                 Reviewer = new Reviewer(){ FirstName = "Taylor", LastName = "Jones" } },
                                 new Review { Title="The Great Gatsby",Text = "I loved \"The Great Gatsby\" for its captivating portrayal of the glitzy Jazz" +
-                                " Age and the complex characters, ", 
-                                Reviewer = new Reviewer(){ FirstName = "Jessica", LastName = "McGregor" } },
+                                " Age and the complex characters, ", Rating = 5,
+                                Reviewer = new Reviewer(){ FirstName = "Jessica", LastName = "McGregor" } }, 
                             }
                         },
                         Owner = new Owner()
@@ -65,13 +65,13 @@ namespace BookRewiewAPI
                             Reviews = new List<Review>()
                             {
                                 new Review { Title= "Hamlet", Text = "I liked \"Hamlet\" because it had a lot of action and some funny parts, even though" +
-                                " it's also pretty sad.", 
+                                " it's also pretty sad.", Rating = 4,
                                 Reviewer = new Reviewer(){ FirstName = "Teddy", LastName = "Smith" } },
                                 new Review { Title= "Hamlet",Text = "I found \"Hamlet\" to be a bit of a rollercoaster – the mix of intense drama, dark humor," +
-                                " and psychological depth.", 
+                                " and psychological depth.", Rating = 5,
                                 Reviewer = new Reviewer(){ FirstName = "Taylor", LastName = "Jones" } },
                                 new Review { Title= "Hamlet", Text = "\"Hamlet\" is a classic that never ceases to amaze me. Its exploration of revenge and the" +
-                                " human psyche evoked a profound sense of awe, leaving me emotionally stirred and intellectually engaged.",
+                                " human psyche evoked a profound sense of awe, leaving me emotionally stirred and intellectually engaged.",Rating = 4,
                                 Reviewer = new Reviewer(){ FirstName = "Jessica", LastName = "McGregor" } },
                             }
                         },
@@ -99,13 +99,13 @@ namespace BookRewiewAPI
                             Reviews = new List<Review>()
                             {
                                 new Review { Title="Pride and Prejudice",Text = "\"Pride and Prejudice\" is a heartwarming classic that had me rooting for Elizabeth" +
-                                " and Mr. Darcy's love story from start to finish.", 
+                                " and Mr. Darcy's love story from start to finish.", Rating = 5,
                                 Reviewer = new Reviewer(){ FirstName = "Teddy", LastName = "Smith" } },
                                 new Review { Title="Pride and Prejudice",Text = "I didn't expect to enjoy a 19th-century novel, but \"Pride and Prejudice\" surprised" +
-                                " me with its lively characters and romantic twists.", 
+                                " me with its lively characters and romantic twists.", Rating = 4,
                                 Reviewer = new Reviewer(){ FirstName = "Taylor", LastName = "Jones" } },
                                 new Review { Title="Pride and Prejudice",Text = "\"Pride and Prejudice\" is a delightful book that whisked me away to another era, and I" +
-                                " couldn't help but get swept up in the charming world of manners and matchmaking.", 
+                                " couldn't help but get swept up in the charming world of manners and matchmaking.", Rating = 5,
                                 Reviewer = new Reviewer(){ FirstName = "Jessica", LastName = "McGregor" } },
                             }
                         },

@@ -15,7 +15,7 @@ namespace BookRewiewAPI.Repository
 
         public bool BookExists(int bookId)
         {
-            throw new NotImplementedException();
+            return _context.Book.Any(p=>p.Id== bookId);
         }
 
         public Book GetBook(int id)
@@ -30,7 +30,10 @@ namespace BookRewiewAPI.Repository
 
         public decimal GetBookRating(int bookId)
         {
-            throw new NotImplementedException();
+            var review = _context.Rewiews.Where(p => p.Book.Id == bookId);
+            if(review.Count()<=0)
+                return 0;
+            return (decimal) review.Sum(r => r.Rating) / review.Count();
         }
 
         public ICollection<Book> GetBooks() 
