@@ -8,7 +8,12 @@ namespace BookReviewAPI.Helper
     {
         public MappingProfiles()
         {
-            CreateMap<Book, BookDto>();
+            CreateMap<Book, BookDto>()
+                .ReverseMap();
+            CreateMap <Category, CategoryDto>()
+                .ReverseMap();
+            CreateMap<Country, CountryDto>()
+                .ReverseMap() ;
         }
     }
 }
