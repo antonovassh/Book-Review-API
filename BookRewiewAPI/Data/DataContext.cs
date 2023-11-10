@@ -15,8 +15,8 @@ namespace BookRewiewAPI.Data
         public DbSet<Book> Book { get; set; }
         public DbSet<BookOwner> BookOwners { get; set; }
         public DbSet<BookCategory> BookCategories { get; set; }
-        public DbSet<Review> Rewiews { get; set; }
-        public DbSet<Reviewer> Rewiewers { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<Reviewer> Reviewers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
