@@ -14,6 +14,12 @@ namespace BookReviewAPI.Helper
                 .ReverseMap();
             CreateMap<Country, CountryDto>()
                 .ReverseMap() ;
+            CreateMap<Owner, OwnerDto>() 
+                .ReverseMap();
+            CreateMap<Review, ReviewDto>() 
+                .ReverseMap();
+            CreateMap<Reviewer, ReviewerDto>()
+                .ReverseMap();
         }
     }
 }

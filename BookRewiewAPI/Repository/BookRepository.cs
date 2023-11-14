@@ -30,7 +30,7 @@ namespace BookRewiewAPI.Repository
 
         public decimal GetBookRating(int bookId)
         {
-            var review = _context.Rewiews.Where(p => p.Book.Id == bookId);
+            var review = _context.Reviews.Where(p => p.Book.Id == bookId);
             if(review.Count()<=0)
                 return 0;
             return (decimal) review.Sum(r => r.Rating) / review.Count();
