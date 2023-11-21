@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace BookRewiewAPI.Migrations
+namespace BookReviewAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class init3 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -53,7 +53,7 @@ namespace BookRewiewAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Rewiewers",
+                name: "Reviewers",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -63,7 +63,7 @@ namespace BookRewiewAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Rewiewers", x => x.Id);
+                    table.PrimaryKey("PK_Reviewers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -112,29 +112,30 @@ namespace BookRewiewAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Rewiews",
+                name: "Reviews",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Text = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Rating = table.Column<int>(type: "int", nullable: false),
                     ReviewerId = table.Column<int>(type: "int", nullable: false),
                     BookId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Rewiews", x => x.Id);
+                    table.PrimaryKey("PK_Reviews", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Rewiews_Book_BookId",
+                        name: "FK_Reviews_Book_BookId",
                         column: x => x.BookId,
                         principalTable: "Book",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Rewiews_Rewiewers_ReviewerId",
+                        name: "FK_Reviews_Reviewers_ReviewerId",
                         column: x => x.ReviewerId,
-                        principalTable: "Rewiewers",
+                        principalTable: "Reviewers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -179,13 +180,13 @@ namespace BookRewiewAPI.Migrations
                 column: "CountryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Rewiews_BookId",
-                table: "Rewiews",
+                name: "IX_Reviews_BookId",
+                table: "Reviews",
                 column: "BookId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Rewiews_ReviewerId",
-                table: "Rewiews",
+                name: "IX_Reviews_ReviewerId",
+                table: "Reviews",
                 column: "ReviewerId");
         }
 
@@ -199,7 +200,7 @@ namespace BookRewiewAPI.Migrations
                 name: "BookOwners");
 
             migrationBuilder.DropTable(
-                name: "Rewiews");
+                name: "Reviews");
 
             migrationBuilder.DropTable(
                 name: "Category");
@@ -211,7 +212,7 @@ namespace BookRewiewAPI.Migrations
                 name: "Book");
 
             migrationBuilder.DropTable(
-                name: "Rewiewers");
+                name: "Reviewers");
 
             migrationBuilder.DropTable(
                 name: "Countries");

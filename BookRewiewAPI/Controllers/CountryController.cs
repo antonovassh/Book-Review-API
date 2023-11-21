@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BookReviewAPI.Dto;
 using BookReviewAPI.Interfaces;
+using BookReviewAPI.Repository;
 using BookRewiewAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -51,6 +52,33 @@ namespace BookReviewAPI.Controllers
             if(!ModelState.IsValid)
                 return BadRequest();
             return Ok(country);
+        }
+        [HttpPost]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        public IActionResult CreateCountry([FromBody] CountryDto countryCreate)
+        {
+            if (countryCreate == null)
+                return BadRequest(ModelState);
+
+            var country = _countryRepository.GetCountries()
+                .Where(c => c.Name.Trim().ToUpper() == countryCreate.Name.TrimEnd().ToUpper())
+                .FirstOrDefault();
+            if (country != null)
+            {
+                ModelState.AddModelError("", "Country already exists");
+                return StatusCode(422, ModelState);
+            }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            var countryMap = _mapper.Map<Country>(countryCreate);
+            if (!_countryRepository.CreateCountry(countryMap))
+            {
+                ModelState.AddModelError("", "Something went wrong while saving");
+                return StatusCode(500, ModelState);
+            }
+            return Ok("Succesfully created");
+
         }
     }
 }

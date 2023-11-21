@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace BookRewiewAPI.Migrations
+namespace BookReviewAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231027142002_Init")]
-    partial class Init
+    [Migration("20231121150327_added-BookId-toReview")]
+    partial class addedBookIdtoReview
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -150,6 +150,9 @@ namespace BookRewiewAPI.Migrations
                     b.Property<int>("BookId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
                     b.Property<int>("ReviewerId")
                         .HasColumnType("int");
 
@@ -167,7 +170,7 @@ namespace BookRewiewAPI.Migrations
 
                     b.HasIndex("ReviewerId");
 
-                    b.ToTable("Rewiews");
+                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("BookRewiewAPI.Models.Reviewer", b =>
@@ -188,7 +191,7 @@ namespace BookRewiewAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Rewiewers");
+                    b.ToTable("Reviewers");
                 });
 
             modelBuilder.Entity("BookRewiewAPI.Models.BookCategory", b =>

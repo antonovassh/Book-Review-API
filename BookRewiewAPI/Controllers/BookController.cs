@@ -30,6 +30,7 @@ namespace BookRewiewAPI.Controllers
             }
             return Ok(books);
         }
+
         [HttpGet("{bookId}")]
         [ProducesResponseType(200,Type = typeof(Book))]
         [ProducesResponseType(400)]
@@ -42,6 +43,7 @@ namespace BookRewiewAPI.Controllers
                 return BadRequest(ModelState);
             return Ok(book);
         }
+
         [HttpGet("{bookId}/rating")]
         [ProducesResponseType(200, Type = typeof(decimal))]
         [ProducesResponseType(400)]
@@ -53,6 +55,36 @@ namespace BookRewiewAPI.Controllers
             if (!ModelState.IsValid)
                 return BadRequest();
             return Ok(rating);
+        }
+
+        [HttpPost]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        public IActionResult CreateBook([FromQuery] int ownerId, [FromQuery] int catId, [FromBody] BookDto bookCreate)
+        {
+            if (bookCreate == null)
+                return BadRequest(ModelState);
+
+            var books = _bookRepository.GetBooks()
+                .Where(c => c.Title.Trim().ToUpper() == bookCreate.Title.TrimEnd().ToUpper())
+                .FirstOrDefault();
+
+            if (books != null)
+            {
+                ModelState.AddModelError("", "Book already exists");
+                return StatusCode(422, ModelState);
+            }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            var bookMap = _mapper.Map<Book>(bookCreate);
+
+            if (!_bookRepository.CreateBook(ownerId, catId, bookMap))
+            {
+                ModelState.AddModelError("", "Something went wrong while saving");
+                return StatusCode(500, ModelState);
+            }
+            return Ok("Succesfully created");
+
         }
 
     }

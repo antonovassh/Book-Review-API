@@ -15,6 +15,18 @@ namespace BookReviewAPI.Repository
             _context = context;
             _mapper = mapper;
         }
+
+        public bool CreateReview(Review review)
+        {
+            _context.Add(review);
+            return Save();
+        }
+
+        public bool CreateReview(Review review, int bookId, int reviewerId)
+        {
+            throw new NotImplementedException();
+        }
+
         public Review GetReview(int reviewId)
         {
             return _context.Reviews.Where(r=>r.Id==reviewId).FirstOrDefault();  
@@ -33,6 +45,12 @@ namespace BookReviewAPI.Repository
         public bool ReviewExists(int reviewId)
         {
             return _context.Reviews.Any(r=>r.Id==reviewId);
+        }
+
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+            return saved > 0 ? true : false;    
         }
     }
 }

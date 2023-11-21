@@ -8,5 +8,7 @@ namespace BookReviewAPI.Interfaces
         Review GetReview(int reviewId);
         ICollection<Review> GetReviewsOfABook(int bookId);
         bool ReviewExists(int reviewId);
+        bool CreateReview(Review review, int bookId, int reviewerId);
+        bool Save();
     }
 }

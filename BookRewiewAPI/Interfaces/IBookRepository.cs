@@ -10,6 +10,7 @@ namespace BookRewiewAPI.Interfaces
         decimal GetBookRating(int bookId);
         bool BookExists(int bookId);
 
-
+        bool CreateBook(int ownerId, int categoryId, Book book);
+        bool Save();
     }
 }

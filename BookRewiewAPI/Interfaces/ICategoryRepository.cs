@@ -8,5 +8,7 @@ namespace BookReviewAPI.Interfaces
         BookCategory GetCategory(int id);
         ICollection<Book> GetBookByCategory(int categoryId);
         bool CategoryExists(int id);
+        bool CreateCategory(Category category);
+        bool Save();
     }
 }

@@ -17,6 +17,14 @@ namespace BookReviewAPI.Repository
             return _context.BookCategories.Any(c => c.CategoryId == id);
         }
 
+        public bool CreateCategory(Category category)
+        {
+            
+            _context.Add(category);
+            _context.SaveChanges();
+            return Save();
+        }
+
         public ICollection<Book> GetBookByCategory(int categoryId)
         {
             return _context.BookCategories.Where(e=>e.CategoryId == categoryId).Select(c=>c.Book).ToList();
@@ -30,6 +38,12 @@ namespace BookReviewAPI.Repository
         public BookCategory GetCategory(int id)
         {
             return _context.BookCategories.Where(e => e.CategoryId == id).FirstOrDefault();
+        }
+
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+            return saved > 0 ? true : false;
         }
     }
 }

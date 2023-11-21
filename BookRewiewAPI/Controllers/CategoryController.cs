@@ -30,6 +30,7 @@ namespace BookReviewAPI.Controllers
             }
             return Ok(categories);
         }
+
         [HttpGet("{categoryId}")]
         [ProducesResponseType(200, Type = typeof(Category))]
         [ProducesResponseType(400)]
@@ -42,6 +43,7 @@ namespace BookReviewAPI.Controllers
                 return BadRequest(ModelState);
             return Ok(category);
         }
+
         [HttpGet("book/{categoryId}")]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Category>))]
         [ProducesResponseType(400)]
@@ -51,6 +53,33 @@ namespace BookReviewAPI.Controllers
             if (!ModelState.IsValid)
                 return BadRequest();
             return Ok(books);
+        }
+
+        [HttpPost]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        public IActionResult CreateCategory([FromBody] CategoryDto categoryCreate)
+        {
+            if (categoryCreate == null)
+                return BadRequest(ModelState);
+
+            var category = _categoryRepository.GetCategories()
+                .FirstOrDefault();
+            if (category != null)
+            {
+                ModelState.AddModelError("", "Category already exists");
+                return StatusCode(422, ModelState);
+            }
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState);
+            var categoryMap = _mapper.Map<Category>(categoryCreate);
+            if (!_categoryRepository.CreateCategory(categoryMap))
+            {
+                ModelState.AddModelError("", "Something went wrong while saving");
+                return StatusCode(500, ModelState);
+            }
+            return Ok("Succesfully created");
+
         }
     }
 }
